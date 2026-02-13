@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet"> <!-- Import Dancing Script for handwriting look -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Dancing Script', cursive; /* Handwriting-style font for all text */
+            background: white; /* White background */
+            color: #d32f2f; /* Red text */
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Floating hearts animation (rising from bottom to top with random drift) */
+        .heart {
+            position: absolute;
+            font-size: 40px; /* Size set to 40px */
+            color: #ff1744;
+            animation: floatUp 6s linear infinite; /* Rising animation */
+            pointer-events: none;
+            --drift: 0px; /* Default drift, overridden by JS */
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) translateX(var(--drift)); opacity: 1; } /* Start from bottom with random horizontal drift */
+            50% { transform: translateY(50vh) translateX(calc(var(--drift) * 0.5)); opacity: 0.8; } /* Mid-point with reduced drift */
+            100% { transform: translateY(-100px) translateX(calc(var(--drift) * 0.2)); opacity: 0; } /* Float up and fade out at top with minimal drift */
+        }
+
+        /* Page 1: Bouquet Image with greeting above */
+        #page1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+        }
+
+        #greeting {
+            font-size: 2rem;
+            color: #d32f2f; /* Red color */
+            font-family: 'Dancing Script', cursive; /* Handwriting-style font */
+            margin-bottom: 20px; /* Space below greeting */
+        }
+
+        #bouquet {
+            width: 80%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            /* No box-shadow for no visible border */
+            position: relative;
+        }
+
+        #nextBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff1744;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        #nextBtn:hover {
+            background: #d32f2f;
+            transform: scale(1.05); /* Modern interactive hover */
+        }
+
+        /* Page 2: Letter with modern interactive style */
+        #page2 {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        #letter {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 90%;
+            text-align: center;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #d32f2f;
+            font-family: 'Dancing Script', cursive; /* Handwriting-style font */
+            border: 2px solid #ff1744;
+            animation: fadeIn 1s ease-in; /* Modern fade-in animation */
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #typewriter {
+            white-space: pre-line;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts (50 hearts, all moving with randomized positions, delays, durations, and drifts) -->
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
+
+    <!-- Page 1 -->
+    <div id="page1">
+        <h1 id="greeting">Happy Valentine's, Love!</h1>
+        <img id="bouquet" src="11.png" alt="Bouquet">
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2">
+        <div id="letter">
+            <div id="typewriter"></div>
+        </div>
+    </div>
+
+    <script>
+        // Randomize heart positions, animation delays, durations, and horizontal drifts
+        const hearts = document.querySelectorAll('.heart');
+        hearts.forEach(heart => {
+            const randomLeft = Math.random() * 100; // Random horizontal position (0% to 100%)
+            const randomDelay = Math.random() * 10; // Random delay (0 to 10 seconds)
+            const randomDuration = 4 + Math.random() * 4; // Random duration (4 to 8 seconds) for varied speeds
+            const randomDrift = Math.random() * 40 - 20; // Random horizontal drift (-20px to 20px)
+            heart.style.left = `${randomLeft}%`;
+            heart.style.animationDelay = `${randomDelay}s`;
+            heart.style.animationDuration = `${randomDuration}s`;
+            heart.style.setProperty('--drift', `${randomDrift}px`);
+        });
+
+        const nextBtn = document.getElementById('nextBtn');
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        const typewriter = document.getElementById('typewriter');
+
+        const letterText = `From the moment I met you,
+my world became softer, brighter,
+and filled with meaning.
+
+You are my favorite notification,
+my safest place,
+and my greatest adventure. 
+
+Happy Valentine's Day, My Love!
+Padangat taka ❤️`;
+
+        let index = 0;
+
+        nextBtn.addEventListener('click', () => {
+            page1.style.display = 'none';
+            page2.style.display = 'flex';
+            typeWriter();
+        });
+
+        function typeWriter() {
+            if (index < letterText.length) {
+                typewriter.innerHTML += letterText.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100); // Adjust speed here
+            }
+        }
+    </script>
+</body>
+</html>
